@@ -15,7 +15,7 @@ public class Configuration {
         this.filePath = filePath;
     }
 
-    /***
+    /**
      * Read file .properties and get string value of property
      * @param propertyName want to get value
      * @return result value of property
@@ -37,7 +37,7 @@ public class Configuration {
 
             result = prop.getProperty(propertyName);
 
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         } finally {
             inputStream.close();

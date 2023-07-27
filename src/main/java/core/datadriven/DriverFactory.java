@@ -8,20 +8,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.safari.SafariOptions;
 
 public class DriverFactory {
 
     public static WebDriver getDriver(String browser) throws Exception {
 
-        AllureReport allureReport = new AllureReport();
-        allureReport.writeEnvironmentConfig();
+//        AllureReport allureReport = new AllureReport();
+//        allureReport.writeEnvironmentConfig();
 
         switch (browser) {
             case "chrome":
+                //WebDriverManager is a library help controlling web browser
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("incognito");
@@ -31,11 +32,9 @@ public class DriverFactory {
 
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                return new FirefoxDriver();
-
-            case "safari":
-                WebDriverManager.safaridriver().setup();
-                return new SafariDriver();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--kiosk");
+                firefoxOptions.addArguments("-private");
 
             case "opera":
                 WebDriverManager.operadriver().setup();
@@ -50,7 +49,8 @@ public class DriverFactory {
                 return new InternetExplorerDriver();
 
             default:
-                throw new Exception(new Exception("Can not find browser to open up"));
+                //run chrome browser if didn't get a browser name
+                return new ChromeDriver();
         }
 
     }

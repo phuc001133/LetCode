@@ -7,18 +7,17 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.*;
-
 public class ActionKeyword {
     WebDriver driver;
     WebDriverWait wait;
 
     public ActionKeyword(WebDriver driver) {
         this.driver = driver;
+        //Explicit wait will pause excute script until satisfied with a condition or maximum time has elapsed
         wait = new WebDriverWait(this.driver, 10);
     }
 
-    /***
+    /**
      * move to element and perform click element
      * @param element you want to click
      */
@@ -39,6 +38,7 @@ public class ActionKeyword {
             element.clear();
             //input content text if a text-field is enabled to input
             if (element.isEnabled()) {
+                //input content text if is enable to input
                 element.sendKeys(text);
             }
 
