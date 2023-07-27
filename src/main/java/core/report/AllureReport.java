@@ -17,6 +17,14 @@ public class AllureReport {
     private WebDriver driver;
     private Configuration configuration = new Configuration("src/test/resources/app.properties");
 
+    public AllureReport() {
+
+    }
+
+    public AllureReport(WebDriver driver) {
+        this.driver = driver;
+    }
+
 //    public AllureReport(WebDriver driver) {
 //        this.driver = driver;
 //    }
