@@ -48,13 +48,13 @@ public class AllureReport {
             writer.write("Browser_name = " + configuration.getProperty("browser"));
             writer.write("\n");
 
-            writer.write("Operating system name = " + System.getProperty("os.name"));
+            writer.write("Operating_system_name " + System.getProperty("os.name"));
             writer.write("\n");
 
-            writer.write("Java JDK version = " + System.getProperty("java.version"));
+            writer.write("Java_JDK_version " + System.getProperty("java.version"));
             writer.write("\n");
 
-            writer.write("Link of website project for testing = " + configuration.getProperty("url"));
+            writer.write("Link_of_website_project_for_testing " + configuration.getProperty("url"));
             writer.write("\n");
 
             writer.close();

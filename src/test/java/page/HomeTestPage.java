@@ -16,8 +16,7 @@ public class HomeTestPage extends BasePage{
 
 
 
-    public boolean isBtnEditInputFeatureDisplay() throws InterruptedException {
-        Thread.sleep(2000);
+    public boolean isBtnEditInputFeatureDisplay() {
         return btnEditInputFeature.isDisplayed();
     }
 

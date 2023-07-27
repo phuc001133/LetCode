@@ -17,8 +17,8 @@ public class DriverFactory {
 
     public static WebDriver getDriver(String browser) throws Exception {
 
-//        AllureReport allureReport = new AllureReport();
-//        allureReport.writeEnvironmentConfig();
+        AllureReport allureReport = new AllureReport();
+        allureReport.writeEnvironmentConfig();
 
         switch (browser) {
             case "chrome":
