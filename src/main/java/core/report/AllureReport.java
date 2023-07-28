@@ -1,6 +1,7 @@
 package core.report;
 
 import core.configuration.Configuration;
+import core.datadriven.DriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -24,10 +25,6 @@ public class AllureReport {
     public AllureReport(WebDriver driver) {
         this.driver = driver;
     }
-
-//    public AllureReport(WebDriver driver) {
-//        this.driver = driver;
-//    }
 
     /***
      * image attachment to report after test
@@ -62,8 +59,9 @@ public class AllureReport {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
+
+
 
 
 }

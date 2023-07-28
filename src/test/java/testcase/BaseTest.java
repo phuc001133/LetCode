@@ -5,6 +5,7 @@ import core.datadriven.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import page.HomeTestPage;
 
 import java.io.IOException;
 
@@ -23,4 +24,5 @@ public class BaseTest {
         Thread.sleep(2000);
         driver.quit();
     }
+
 }

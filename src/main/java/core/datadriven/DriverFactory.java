@@ -15,7 +15,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
 
-    public static WebDriver getDriver(String browser) throws Exception {
+    public static WebDriver getDriver(String browser) {
 
         AllureReport allureReport = new AllureReport();
         allureReport.writeEnvironmentConfig();
@@ -47,6 +47,10 @@ public class DriverFactory {
             case "internet explorer":
                 WebDriverManager.iedriver().setup();
                 return new InternetExplorerDriver();
+
+            case "safari":
+                WebDriverManager.safaridriver().setup();
+                return new SafariDriver();
 
             default:
                 //run chrome browser if didn't get a browser name

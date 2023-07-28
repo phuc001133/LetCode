@@ -1,5 +1,6 @@
 package core.actionkeyword;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,11 @@ public class ActionKeyword {
         this.driver = driver;
         //Explicit wait will pause excute script until satisfied with a condition or maximum time has elapsed
         wait = new WebDriverWait(this.driver, 10);
+    }
+
+    public void press_tab_key() {
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.TAB);
     }
 
     /**

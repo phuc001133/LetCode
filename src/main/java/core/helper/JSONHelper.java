@@ -38,6 +38,7 @@ public class JSONHelper {
             //init Object[][] with height and width below
             dataProvider = new Object[height][width];
 
+            //iterate over all object in the array
             for (int i = 0; i < height; i++) {
 
                 //get object at index i
@@ -49,16 +50,9 @@ public class JSONHelper {
                 //iterate over all attribute of an obj
                 for (int j = 0; j < width; j++) {
                     //assign empty string if obj isn't contain any char
-                    if (object == null) {
-                        dataProvider[i][j] = "";
-                    }
-
-                    //get att at index j and assign a var name dataFromKey
-                    else {
-                        String dataFromKey = object.get(key[j]).toString();
-                        String optimizeData = dataFromKey.substring(1, dataFromKey.length() - 1);
-                        dataProvider[i][j] = optimizeData;
-                    }
+                    String dataFromKey = object.get(key[j]).toString();
+                    String optimizeData = dataFromKey.substring(1, dataFromKey.length() - 1);
+                    dataProvider[i][j] = optimizeData;
                 }
             }
 

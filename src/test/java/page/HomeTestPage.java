@@ -11,14 +11,31 @@ public class HomeTestPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(how = How.CSS, using = "[href='/edit']")
+    @FindBy(how = How.TAG_NAME, using = "h1")
+    private WebElement lblNameOfHomeTestPage;
+
+    @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Edit")
     private WebElement btnEditInputFeature;
 
+    @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Click")
+    private WebElement btnButtonFeature;
 
-
-    public boolean isBtnEditInputFeatureDisplay() {
-        return btnEditInputFeature.isDisplayed();
+    public String getNameOfHomeTestPage() {
+        allureReport.saveScreenshot("Home Test Page");
+        return lblNameOfHomeTestPage.getText();
     }
+
+    public void clickOn_btnEdit_GoToInputPage() {
+        actionKeyword.click(btnEditInputFeature);
+        allureReport.saveScreenshot("Click on Edit button");
+    }
+
+    public void clickOn_btnBtnFeature_GoToButtonPage() {
+        actionKeyword.click(btnButtonFeature);
+        allureReport.saveScreenshot("Click on Button going to Button Page");
+    }
+
+
 
 
 }
