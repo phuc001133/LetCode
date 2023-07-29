@@ -1,13 +1,14 @@
 package testcase;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 import page.EditPage;
 import page.HomeTestPage;
-import testdata.InputTestData;
 
 public class Input_EditPage extends BaseTest {
+    @Epic("Test all about input feature")
     @Test (priority = 1)
     public void verifyAllFeatureOfInputPageIsSuccessfully() throws InterruptedException {
         HomeTestPage homeTestPage = new HomeTestPage(driver);
@@ -22,8 +23,11 @@ public class Input_EditPage extends BaseTest {
 
         editPage.clearContentOf_txtClearMe();
 
-        boolean result = editPage.isEnableEditTextField();
-        Assert.assertFalse(result);
+        boolean isDisableTextField = editPage.isEnableEditTextField();
+        Assert.assertFalse(isDisableTextField);
+
+        boolean isReadOnlyTextField = editPage.isTxtReadOnlyCanNotEdit();
+        Assert.assertTrue(isReadOnlyTextField);
     }
 
 }

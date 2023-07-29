@@ -37,6 +37,7 @@ public class ActionKeyword {
      * Input a text content in the text-field
      * @param element text-field you want to input text
      * @param text : content text want to input
+     * @return
      */
     public void setText(WebElement element, String text) {
         try {
@@ -51,6 +52,7 @@ public class ActionKeyword {
         } catch (WebDriverException e) {
             throw new WebDriverException("Element is not enable to set text");
         }
+
     }
 
     /***

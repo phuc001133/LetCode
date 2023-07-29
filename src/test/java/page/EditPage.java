@@ -1,5 +1,6 @@
 package page;
 
+import org.openqa.selenium.InvalidElementStateException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,6 +25,9 @@ public class EditPage extends BasePage{
 
     @FindBy(how = How.ID, using = "noEdit")
     private WebElement txtUnableEdit;
+
+    @FindBy(how = How.ID, using = "dontwrite")
+    private WebElement txtReadOnly;
 
     public void inputFullName(String fullName) {
         actionKeyword.setText(txtFullName, fullName);
@@ -57,4 +61,16 @@ public class EditPage extends BasePage{
     public boolean isEnableEditTextField() {
         return txtUnableEdit.isEnabled();
     }
+
+    public boolean isTxtReadOnlyCanNotEdit() {
+        try {
+            txtReadOnly.clear();
+        } catch (InvalidElementStateException e) {
+            //txtReadOnly can read only
+            return true;
+        }
+        //txtReadOnly can edit
+        return false;
+    }
+
 }
