@@ -34,31 +34,31 @@ public class EditPage extends BasePage{
         allureReport.saveScreenshot("After fill fullname");
     }
 
-    public void clickOnFullnameTextField() {
-        actionKeyword.click(txtFullName);
-    }
-
     public String getFullname() {
         return txtFullName.getAttribute("value");
     }
 
-    public void pressTab_from_txtFullName_to_txtJoinText() throws InterruptedException {
-        actionKeyword.press_tab_key();
+    public void pressTab_from_txtFullName_to_txtJoinText() {
+        actionKeyword.press_tab_key(txtFullName);
     }
 
     public String getTextOf_txtJoinText() {
         return txtJoinText.getAttribute("value");
     }
 
-    public String getAttributeOf_txtGetMe(String attribute) {
-        return txtGetMe.getAttribute(attribute);
+    public String getAttributeOf_txtGetMe() {
+        return txtGetMe.getAttribute("value");
     }
 
     public void clearContentOf_txtClearMe() {
         txtClearMe.clear();
     }
 
-    public boolean isEnableEditTextField() {
+    public boolean isEmptyTextfield() {
+        return txtClearMe.getAttribute("value").isEmpty();
+    }
+
+    public boolean isDisableEditTextField() {
         return txtUnableEdit.isEnabled();
     }
 

@@ -1,6 +1,5 @@
 package page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,6 +34,18 @@ public class HomeTestPage extends BasePage{
         allureReport.saveScreenshot("Click on Button going to Button Page");
     }
 
+    public void goToPage(String pageName) {
+        switch (pageName) {
+            case "Edit":
+                actionKeyword.click(btnEditInputFeature);
+                allureReport.saveScreenshot("Click on Edit button");
+                break;
+            case "Button":
+                actionKeyword.click(btnButtonFeature);
+                allureReport.saveScreenshot("Click on Button going to Button Page");
+                break;
+        }
+    }
 
 
 

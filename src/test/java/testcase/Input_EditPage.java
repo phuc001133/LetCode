@@ -1,33 +1,57 @@
 package testcase;
 
-import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import org.junit.Assert;
-import org.testng.annotations.Test;
-import page.EditPage;
-import page.HomeTestPage;
+import org.testng.annotations.*;
 
 public class Input_EditPage extends BaseTest {
-    @Epic("Test all about input feature")
-    @Test (priority = 1)
-    public void verifyAllFeatureOfInputPageIsSuccessfully() throws InterruptedException {
-        HomeTestPage homeTestPage = new HomeTestPage(driver);
-        homeTestPage.clickOn_btnEdit_GoToInputPage();
 
-        EditPage editPage = new EditPage(driver);
-        editPage.inputFullName("Nguyen Phuc Nguyen");
+    @Test(priority = 1)
+    public void verifyInputFullname() {
+        homeTestPage.goToPage("Edit");
+        editPage.inputFullName("Nguyen Phuc");
+        Assert.assertTrue(!editPage.getFullname().isEmpty());
+    }
+
+    @Test(priority = 2)
+    public void verifyPressTab_from_txtFullName_to_txtJoinTextSuccessfully() {
+        homeTestPage.goToPage("Edit");
 
         editPage.pressTab_from_txtFullName_to_txtJoinText();
 
-        Assert.assertEquals("ortonikc", editPage.getAttributeOf_txtGetMe("value"));
+        Assert.assertEquals("I am good", editPage.getTextOf_txtJoinText());
+    }
+
+    @Test(priority = 3)
+    public void verifyGetAttributeContentInTextFieldSuccessfully() {
+        homeTestPage.goToPage("Edit");
+
+        editPage.getAttributeOf_txtGetMe();
+
+        Assert.assertTrue(editPage.getAttributeOf_txtGetMe().equals("ortonikc"));
+    }
+
+    @Test(priority = 4)
+    public void verifyClearContentInTextFieldSuccessfully() {
+        homeTestPage.goToPage("Edit");
 
         editPage.clearContentOf_txtClearMe();
 
-        boolean isDisableTextField = editPage.isEnableEditTextField();
-        Assert.assertFalse(isDisableTextField);
+        Assert.assertTrue(editPage.isEmptyTextfield());
+    }
+
+    @Test(priority = 5)
+    public void verifyDisableTextField() {
+        homeTestPage.goToPage("Edit");
+
+        Assert.assertFalse(editPage.isDisableEditTextField());
+    }
+
+    @Test(priority = 6)
+    public void verifyReadOnlyTextField() {
+        homeTestPage.goToPage("Edit");
 
         boolean isReadOnlyTextField = editPage.isTxtReadOnlyCanNotEdit();
         Assert.assertTrue(isReadOnlyTextField);
     }
-
 }
+

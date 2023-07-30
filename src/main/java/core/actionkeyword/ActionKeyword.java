@@ -18,9 +18,10 @@ public class ActionKeyword {
         wait = new WebDriverWait(this.driver, 10);
     }
 
-    public void press_tab_key() {
+    public void press_tab_key(WebElement element) {
         Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.TAB);
+        actions.moveToElement(element).build().perform();
+        element.sendKeys(Keys.TAB);
     }
 
     /**
