@@ -10,29 +10,12 @@ public class HomeTestPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(how = How.TAG_NAME, using = "h1")
-    private WebElement lblNameOfHomeTestPage;
-
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Edit")
     private WebElement btnEditInputFeature;
 
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Click")
     private WebElement btnButtonFeature;
 
-    public String getNameOfHomeTestPage() {
-        allureReport.saveScreenshot("Home Test Page");
-        return lblNameOfHomeTestPage.getText();
-    }
-
-    public void clickOn_btnEdit_GoToInputPage() {
-        actionKeyword.click(btnEditInputFeature);
-        allureReport.saveScreenshot("Click on Edit button");
-    }
-
-    public void clickOn_btnBtnFeature_GoToButtonPage() {
-        actionKeyword.click(btnButtonFeature);
-        allureReport.saveScreenshot("Click on Button going to Button Page");
-    }
 
     public void goToPage(String pageName) {
         switch (pageName) {
@@ -42,8 +25,9 @@ public class HomeTestPage extends BasePage{
                 break;
             case "Button":
                 actionKeyword.click(btnButtonFeature);
-                allureReport.saveScreenshot("Click on Button going to Button Page");
+                allureReport.saveScreenshot("Click on 'Click' going to Button Page");
                 break;
+
         }
     }
 

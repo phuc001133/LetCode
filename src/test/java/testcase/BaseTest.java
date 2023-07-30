@@ -4,6 +4,7 @@ import core.configuration.Configuration;
 import core.datadriven.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+import page.ClickPage;
 import page.EditPage;
 import page.HomeTestPage;
 
@@ -13,6 +14,7 @@ public class BaseTest {
     public WebDriver driver;
     public HomeTestPage homeTestPage;
     public EditPage editPage;
+    public ClickPage clickPage;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -21,11 +23,12 @@ public class BaseTest {
         driver.get(configuration.getProperty("url"));
         homeTestPage = new HomeTestPage(driver);
         editPage = new EditPage(driver);
+        clickPage = new ClickPage(driver);
     }
 
     @AfterMethod
     public void tearDown() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         driver.quit();
     }
 
