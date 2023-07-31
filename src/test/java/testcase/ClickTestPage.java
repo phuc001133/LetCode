@@ -1,5 +1,6 @@
 package testcase;
 
+import org.openqa.selenium.Point;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -14,5 +15,15 @@ public class ClickTestPage extends BaseTest {
 
         Assert.assertEquals(driver.getCurrentUrl(),"https://letcode.in/buttons");
     }
+
+    @Test(priority = 2)
+    public void verifyGetLocationOfBtnFindElement() {
+        homeTestPage.goToPage("Button");
+
+        Assert.assertEquals(clickPage.getLocation(), new Point(72,338));
+    }
+
+    
+
 
 }
