@@ -3,7 +3,7 @@ package testcase;
 import org.junit.Assert;
 import org.testng.annotations.*;
 
-public class Input_EditPage extends BaseTest {
+public class Input_EditTestPage extends BaseTest {
 
     @Test(priority = 1)
     public void verifyInputFullname() {
