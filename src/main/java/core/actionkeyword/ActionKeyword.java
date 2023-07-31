@@ -12,11 +12,18 @@ public class ActionKeyword {
     WebDriver driver;
     WebDriverWait wait;
 
+
     public ActionKeyword(WebDriver driver) {
         this.driver = driver;
         //Explicit wait will pause excute script until satisfied with a condition or maximum time has elapsed
         wait = new WebDriverWait(this.driver, 10);
     }
+
+    public void clickAndHoldButton(WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(element).build().perform();
+    }
+
 
     public void press_tab_key(WebElement element) {
         Actions actions = new Actions(driver);
