@@ -1,8 +1,17 @@
 package testcase;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.Assert;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
+@Epic("All about Input (Text field) element test cases ")
+@Severity(SeverityLevel.NORMAL)
+@Link("https://letcode.in/edit")
 public class Input_EditTest extends BaseTest {
 
     @Test(priority = 1)

@@ -59,6 +59,7 @@ public class DialogPage extends BasePage{
 
     public void inputTextInAlert(String content) {
         actionKeyword.inputContentInPromptAlert(content);
+
     }
 
     public boolean isDisplayNotification() {

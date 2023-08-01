@@ -39,7 +39,9 @@ public class EditPage extends BasePage{
     }
 
     public void pressTab_from_txtFullName_to_txtJoinText() {
+        allureReport.saveScreenshot("Before press TAB key");
         actionKeyword.press_tab_key(txtFullName);
+        allureReport.saveScreenshot("After press TAB key");
     }
 
     public String getTextOf_txtJoinText() {
@@ -51,7 +53,9 @@ public class EditPage extends BasePage{
     }
 
     public void clearContentOf_txtClearMe() {
+        allureReport.saveScreenshot("Before clear text content");
         txtClearMe.clear();
+        allureReport.saveScreenshot("After clear text content");
     }
 
     public boolean isEmptyTextfield() {

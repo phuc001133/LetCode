@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import page.*;
 
-import java.io.IOException;
-
 public class BaseTest {
     public WebDriver driver;
     public HomeTestPage homeTestPage;
@@ -15,6 +13,7 @@ public class BaseTest {
     public ClickPage clickPage;
     public DropdownPage dropdownPage;
     public DialogPage dialogPage;
+    public InnerHTMLPage innerHTMLPage;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -26,11 +25,12 @@ public class BaseTest {
         clickPage = new ClickPage(driver);
         dropdownPage = new DropdownPage(driver);
         dialogPage = new DialogPage(driver);
+        innerHTMLPage = new InnerHTMLPage(driver);
     }
 
     @AfterMethod
     public void tearDown() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         driver.quit();
     }
 

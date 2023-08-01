@@ -31,6 +31,7 @@ public class ClickPage extends BasePage {
     private WebElement btnDisabled;
 
     public void clickBtnGoToHome() {
+        allureReport.saveScreenshot("Before click button Go to home");
         actionKeyword.click(btnGoToHome);
         allureReport.saveScreenshot("After go to home page");
     }
@@ -52,8 +53,10 @@ public class ClickPage extends BasePage {
     }
 
     public String getTextOfBtnClickAndHoldAfterClickAndHold() throws InterruptedException {
+        allureReport.saveScreenshot("before click and hold");
         actionKeyword.clickAndHoldButton(btnClickAndHold);
         Thread.sleep(500);
+        allureReport.saveScreenshot("After click and hold");
         return btnClickAndHold.getText();
     }
 

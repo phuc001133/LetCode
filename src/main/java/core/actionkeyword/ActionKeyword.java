@@ -2,17 +2,27 @@ package core.actionkeyword;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.List;
 
 public class ActionKeyword {
     WebDriver driver;
     WebDriverWait wait;
 
+
     public ActionKeyword(WebDriver driver) {
         this.driver = driver;
         //Explicit wait will pause excute script until satisfied with a condition or maximum time has elapsed
         wait = new WebDriverWait(this.driver, 10);
+
+    }
+
+    public WebElement findElement(By location) {
+        return driver.findElement(location);
     }
 
     public void acceptAlert() {

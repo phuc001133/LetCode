@@ -1,8 +1,15 @@
 package testcase;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Link;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("All about Drop-down element test cases")
+@Severity(SeverityLevel.NORMAL)
+@Link("https://letcode.in/dropdowns")
 public class DropDownTest extends BaseTest {
     @Test(priority = 1)
     public void verifyChoseDropDownItemSuccessfully() throws Exception {
@@ -12,7 +19,7 @@ public class DropDownTest extends BaseTest {
     }
 
     @Test(priority = 2)
-    public void verifyIsMultipleSelection() throws Exception {
+    public void verifyIsMultipleSelection() {
         homeTestPage.goToPage("Drop-Down");
         Assert.assertTrue(dropdownPage.isMultiple());
     }

@@ -1,8 +1,12 @@
 package testcase;
 
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+@Epic("All about Dialog element test cases")
+@Severity(SeverityLevel.NORMAL)
+@Link("https://letcode.in/alert")
 public class DialogTest extends BaseTest {
 
     @Test(priority = 1)

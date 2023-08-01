@@ -38,7 +38,7 @@ public class AllureReport {
 
     public void writeEnvironmentConfig() {
         try {
-            File environment = new File("allure-results/environment.properties");
+            File environment = new File("allure-report/environment.properties");
 
             Writer writer = new FileWriter(environment);
 

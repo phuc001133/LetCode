@@ -31,7 +31,9 @@ public class DropdownPage extends BasePage{
 
 
     public void chooseFruit(String fruitName) throws Exception {
+        allureReport.saveScreenshot("Before select item from drop down list");
         actionKeyword.select(ddlFruits, ActionKeyword.SelectType.SELECT_BY_TEXT, fruitName);
+        allureReport.saveScreenshot("after selected item from drop down list");
     }
 
 
@@ -45,21 +47,30 @@ public class DropdownPage extends BasePage{
     }
 
     public void choseSuperheroFromMultipleSelect_byValue(String superHeroName) throws Exception {
+        allureReport.saveScreenshot("Before select");
         actionKeyword.select(selSuperheros, ActionKeyword.SelectType.SELECT_BY_TEXT, superHeroName);
+        allureReport.saveScreenshot("After selected");
+
     }
 
     public void choseSuperheroFromMultipleSelect_byIndex(String index) throws Exception {
+        allureReport.saveScreenshot("Before select");
         actionKeyword.select(selSuperheros, ActionKeyword.SelectType.SELECT_BY_INDEX, index);
+        allureReport.saveScreenshot("After select");
     }
 
     public void choseLastProgrammingLanguage() throws Exception {
+        allureReport.saveScreenshot("Before select");
         Select select = new Select(selLanguages);
         List<WebElement> allOptionLanguages = select.getOptions();
         actionKeyword.select(selLanguages, ActionKeyword.SelectType.SELECT_BY_INDEX, String.valueOf(allOptionLanguages.size() - 1));
+        allureReport.saveScreenshot("After select");
     }
 
     public void selectIndiaUsingValue() throws Exception {
+        allureReport.saveScreenshot("Before select");
         actionKeyword.select(selCountry, ActionKeyword.SelectType.SELECT_BY_VALUE, "India");
+        allureReport.saveScreenshot("After select");
     }
 
     public boolean isIndiaAtCountrySelect() {
