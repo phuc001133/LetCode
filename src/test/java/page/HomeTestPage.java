@@ -22,6 +22,9 @@ public class HomeTestPage extends BasePage{
     @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Drop-Down")
     private WebElement btnDropDownFeature;
 
+    @FindBy(how = How.PARTIAL_LINK_TEXT, using = "Dialog")
+    private WebElement btnDialogFeature;
+
 
 
 
@@ -42,11 +45,13 @@ public class HomeTestPage extends BasePage{
                 actionKeyword.click(btnDropDownFeature);
                 allureReport.saveScreenshot("After click on 'Drop-Down' to going to Drop-down page");
                 break;
-
+            case "Dialog" :
+                actionKeyword.click(btnDialogFeature);
+                allureReport.saveScreenshot("After click on 'Dialog' to going to Dialog page");
+                break;
             default:
                 actionKeyword.click(btnEditInputFeature);
                 driver.navigate().back();
-
 
         }
     }

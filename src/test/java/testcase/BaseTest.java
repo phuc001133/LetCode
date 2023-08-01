@@ -4,10 +4,7 @@ import core.configuration.Configuration;
 import core.datadriven.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import page.ClickPage;
-import page.DropdownPage;
-import page.EditPage;
-import page.HomeTestPage;
+import page.*;
 
 import java.io.IOException;
 
@@ -17,6 +14,7 @@ public class BaseTest {
     public EditPage editPage;
     public ClickPage clickPage;
     public DropdownPage dropdownPage;
+    public DialogPage dialogPage;
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -27,6 +25,7 @@ public class BaseTest {
         editPage = new EditPage(driver);
         clickPage = new ClickPage(driver);
         dropdownPage = new DropdownPage(driver);
+        dialogPage = new DialogPage(driver);
     }
 
     @AfterMethod

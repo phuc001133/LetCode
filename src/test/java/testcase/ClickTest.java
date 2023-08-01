@@ -4,7 +4,7 @@ import org.openqa.selenium.Point;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ClickTestPage extends BaseTest {
+public class ClickTest extends BaseTest {
     @Test(priority = 1)
     public void verifyClickToButtonGotoHomeAndComeBackClickPage() {
         homeTestPage.goToPage("Button");

@@ -1,9 +1,6 @@
 package core.actionkeyword;
 
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,11 +9,30 @@ public class ActionKeyword {
     WebDriver driver;
     WebDriverWait wait;
 
-
     public ActionKeyword(WebDriver driver) {
         this.driver = driver;
         //Explicit wait will pause excute script until satisfied with a condition or maximum time has elapsed
         wait = new WebDriverWait(this.driver, 10);
+    }
+
+    public void acceptAlert() {
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
+    public void inputContentInPromptAlert(String content) {
+        Alert alert = driver.switchTo().alert();
+        alert.sendKeys(content);
+    }
+
+    public void dismissAlert() {
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+    }
+
+    public String getTextOfAlert() {
+        Alert alert = driver.switchTo().alert();
+        return alert.getText();
     }
 
     public void clickAndHoldButton(WebElement element) {
